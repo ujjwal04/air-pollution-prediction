@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <!-- <link rel="stylesheet" type="text/css" href="../static/css/styles.css"> -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+
+    <!--Bootstrap CDN-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <center><h2>Air Quality Index Prediction</h2></center>
+      </div>
+    </header>
+
+    <div class="container p-5">
+      <form action="{{ url_for('predict')}}" method="POST">
+        <div class="form-group mt-3">
+          <label for="T">Temperature</label>
+          <input type="text" class="form-control mt-2" id="T" name="T" />
+        </div>
+        <div class="form-group mt-3">
+          <label for="TM">Maximum Temperature</label>
+          <input type="text" class="form-control mt-2" id="TM" name="TM" />
+        </div>
+        <div class="form-group mt-3">
+          <label for="Tm">Minimum Temperature</label>
+          <input type="text" class="form-control mt-2" id="Tm" name="Tm" />
+        </div>
+        <div class="form-group mt-3">
+          <label for="SLP">Atmospheric Pressure at Sea Level</label>
+          <input type="text" class="form-control mt-2" id="SLP" name="SLP" />
+        </div>
+        <div class="form-group mt-3">
+          <label for="H">Average Relative Density</label>
+          <input type="text" class="form-control mt-2" id="H" id="H" />
+        </div>
+        <div class="form-group mt-3">
+          <label for="V">Average Wind Speed</label>
+          <input type="text" class="form-control mt-2" id="V" name="V" />
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="VV">Average Visibility</label>
+          <input type="text" class="form-control mt-2" id="VV" name="VV" />
+        </div>
+        <div class="form-group mt-3">
+          <label for="VM">Maximum Sustained Wind Speed</label>
+          <input type="text" class="form-control mt-2" id="VM" name="VM" />
+        </div>
+        <div class="form-group mt-3">
+          <label for="PM">Particulate Matter(PM 2.5)</label>
+          <input type="text" class="form-control mt-2" id="PM" name="PM" />
+        </div>
+        <input
+          type="submit"
+          class="btn btn-primary mt-3 mb-3"
+          value="Predict"
+        />
+      </form>
+    </div>
+  </body>
+</html>
